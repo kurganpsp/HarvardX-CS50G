@@ -20,15 +20,15 @@
     modern systems.
 ]]
 
-WINDOW_WIDTH = 1280
-WINDOW_HEIGHT = 720
+WINDOW_WIDTH = 1440
+WINDOW_HEIGHT = 900
 
 --[[
     Runs when the game first starts up, only once; used to initialize the game.
 ]]
 function love.load()
     love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT, {
-        fullscreen = false,
+        fullscreen = true,
         resizable = false,
         vsync = true
     })
