@@ -20,18 +20,17 @@
     modern systems.
 ]]
 
--- push is a library that will allow us to draw our game at a virtual
--- resolution, instead of however large our window is; used to provide
--- a more retro aesthetic
---
+-- push es una librería que nos permitirá dibujar nuestro juego a
+-- una resolución virtual, en lugar de por grande que sea nuestra
+-- ventana; utilizado para proporcionar una estética más retro
 -- https://github.com/Ulydev/push
 push = require 'push'
 
-WINDOW_WIDTH = 1280
-WINDOW_HEIGHT = 720
+WINDOW_WIDTH =  160 * 2
+WINDOW_HEIGHT = 190 * 2
 
-VIRTUAL_WIDTH = 432
-VIRTUAL_HEIGHT = 243
+VIRTUAL_WIDTH = 160
+VIRTUAL_HEIGHT = 190
 
 --[[
     Runs when the game first starts up, only once; used to initialize the game.
@@ -75,7 +74,7 @@ function love.draw()
 
     -- clear the screen with a specific color; in this case, a color similar
     -- to some versions of the original Pong
-    love.graphics.clear(40/255, 45/255, 52/255, 255/255)
+    love.graphics.clear(30/255, 35/255, 42/255, 255/255)
 
     -- draw welcome text toward the top of the screen
     love.graphics.printf('Hello Pong!', 0, 20, VIRTUAL_WIDTH, 'center')

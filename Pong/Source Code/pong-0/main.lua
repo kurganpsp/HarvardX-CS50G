@@ -10,38 +10,44 @@
     Author: Colton Ogden
     cogden@cs50.harvard.edu
 
-    Originally programmed by Atari in 1972. Features two
-    paddles, controlled by players, with the goal of getting
-    the ball past your opponent's edge. First to 10 points wins.
+    Originalmente programado por Atari en 1972. Cuenta con dos
+    paletas, controladas por jugadores, con el objetivo de hacer
+    que la pelota pase el borde de tu oponente. Primero en lograr
+    10 puntos gana.
 
-    This version is built to more closely resemble the NES than
-    the original Pong machines or the Atari 2600 in terms of
-    resolution, though in widescreen (16:9) so it looks nicer on 
-    modern systems.
+    Esta versión está diseñada para parecerse más a la NES que
+    a las máquinas Pong originales o la de Atari 2600 en términos
+    de resolución, aunque en pantalla panorámica (16:9), por lo
+    que se ve mejor en los sistemas modernos.
 ]]
 
-WINDOW_WIDTH = 1440
-WINDOW_HEIGHT = 900
+WINDOW_WIDTH = 160  * 2
+WINDOW_HEIGHT = 190 * 2
 
 --[[
-    Runs when the game first starts up, only once; used to initialize the game.
+    Se ejecuta cuando el juego se inicia por primera vez, solo una vez; 
+    utilizado para inicializar el juego.
 ]]
 function love.load()
     love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT, {
-        fullscreen = true,
+        fullscreen = false,
         resizable = false,
         vsync = true
     })
 end
 
 --[[
-    Called after update by LÖVE2D, used to draw anything to the screen, updated or otherwise.
+    Called after update by LÖVE2D, used to draw anything to the
+    screen, updated or otherwise.
+    
+    Llamado después de la actualización por LÖVE2D, se usa para
+    dibujar cualquier cosa en la pantalla, actualizada o no.
 ]]
 function love.draw()
     love.graphics.printf(
-        'Hello Pong!',          -- text to render
-        0,                      -- starting X (0 since we're going to center it based on width)
-        WINDOW_HEIGHT / 2 - 6,  -- starting Y (halfway down the screen)
-        WINDOW_WIDTH,           -- number of pixels to center within (the entire screen here)
-        'center')               -- alignment mode, can be 'center', 'left', or 'right'
+        'Hello Pong!',          -- texto para representar
+        0,                      -- comenzando X (0 ya que lo vamos a centrar en función del ancho)
+        WINDOW_HEIGHT / 2 - 6,  -- comenzando Y (a la mitad de la pantalla)
+        WINDOW_WIDTH,           -- número de píxeles para centrar dentro (toda la pantalla aquí)
+        'center')               -- modo de alineación, puede ser 'centro', 'izquierda' o 'derecha'
 end

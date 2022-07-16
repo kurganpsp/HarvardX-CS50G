@@ -20,61 +20,66 @@
     modern systems.
 ]]
 
--- push is a library that will allow us to draw our game at a virtual
--- resolution, instead of however large our window is; used to provide
--- a more retro aesthetic
---
+-- push es una librería que nos permitirá dibujar nuestro juego a
+-- una resolución virtual, en lugar de por grande que sea nuestra
+-- ventana; utilizado para proporcionar una estética más retro
 -- https://github.com/Ulydev/push
 push = require 'push'
 
-WINDOW_WIDTH = 1280
-WINDOW_HEIGHT = 720
+WINDOW_WIDTH = 160 * 2
+WINDOW_HEIGHT = 190 * 2
 
-VIRTUAL_WIDTH = 432
-VIRTUAL_HEIGHT = 243
+VIRTUAL_WIDTH = 160
+VIRTUAL_HEIGHT = 190
 
 --[[
-    Runs when the game first starts up, only once; used to initialize the game.
+    Se ejecuta cuando el juego se inicia por primera vez,
+    solo una vez; utilizado para inicializar el juego.
 ]]
 function love.load()
-    -- use nearest-neighbor filtering on upscaling and downscaling to prevent blurring of text 
-    -- and graphics; try removing this function to see the difference!
+    -- use el filtrado de nearest-neighbor en la ampliación y 
+    -- reducción de escala para evitar la borrosidad del texto y graficos.
+    -- ¡Intenta eliminar esta función para ver la diferencia!
     love.graphics.setDefaultFilter('nearest', 'nearest')
 
-    -- initialize our virtual resolution, which will be rendered within our
-    -- actual window no matter its dimensions; replaces our love.window.setMode call
-    -- from the last example
-    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
-        fullscreen = false,
-        resizable = false,
-        vsync = true
-    })
+    -- inicializar nuestra resolución virtual, que se representará 
+    -- dentro de nuestra ventana actual sin importar sus dimensiones;
+    -- reemplaza nuestra llamada love.window.setMode del último ejemplo
+    push:setupScreen(   VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 
+                        WINDOW_WIDTH, WINDOW_HEIGHT, {
+                            fullscreen = false,
+                            resizable = false,
+                            vsync = true
+                        }
+    )
 end
 
 --[[
-    Keyboard handling, called by LÖVE2D each frame; 
-    passes in the key we pressed so we can access.
+    Manejo del teclado, llamado por LÖVE2D cada cuadro;
+    pasa en la tecla que pulsamos para que podamos acceder.
 ]]
 function love.keypressed(key)
     -- keys can be accessed by string name
+    -- Se puede acceder a las claves por nombre de cadena
     if key == 'escape' then
-        -- function LÖVE gives us to terminate application
+        -- función que LÖVE nos da para terminar la aplicación
         love.event.quit()
     end
 end
 
 --[[
-    Called after update by LÖVE2D, used to draw anything to the screen, 
-    updated or otherwise.
+    Llamado después de la actualización por LÖVE2D, se usa para
+    dibujar cualquier cosa en la pantalla, actualizada o no.
 ]]
 function love.draw()
-    -- begin rendering at virtual resolution
+    -- comenzar a renderizar a resolución virtual
     push:apply('start')
 
-    -- condensed onto one line from last example
-    -- note we are now using virtual width and height now for text placement
-    love.graphics.printf('Hello Pong!', 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
+    -- condensado en una línea del último ejemplo
+    -- tenga en cuenta que ahora estamos usando ancho y alto 
+    -- virtuales ahora para la colocación del texto
+    love.graphics.printf('Hello Porngers!', 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
 
-    -- end rendering at virtual resolution
+    -- renderizado final en resolución virtual
     push:apply('end')
 end
