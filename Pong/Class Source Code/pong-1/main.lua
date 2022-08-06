@@ -60,7 +60,7 @@ end
 ]]
 function love.keypressed(key)
     -- keys can be accessed by string name
-    -- Se puede acceder a las claves por nombre de cadena
+    -- Se puede acceder a las teclas por nombre de cadena
     if key == 'escape' then
         -- función que LÖVE nos da para terminar la aplicación
         love.event.quit()

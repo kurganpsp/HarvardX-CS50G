@@ -122,8 +122,9 @@ function love.keypressed(key)
     if key == 'escape' then
         -- function LÖVE gives us to terminate application
         love.event.quit()
-    -- if we press enter during the start state of the game, we'll go into play mode
-    -- during play mode, the ball will move in a random direction
+        -- si presionamos enter durante el estado de inicio del juego, 
+        -- entraremos en modo de juego,  durante el modo de juego, la 
+        -- pelota se moverá en una dirección aleatoria
     elseif key == 'enter' or key == 'return' then
         if gameState == 'start' then
             gameState = 'play'
