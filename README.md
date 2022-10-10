@@ -9,18 +9,6 @@ David J. Malan
 malan@harvard.edu
 
 ### Week 0 Pong (Tele-Pong) Atari
-    
-<details>
-<summary>"Click to expand"</summary>
-Clase-1     Pong-0
-
-Autor:  Cristhian Pineda Castro
-        kurganpsp@gmail.com
-</details>
-
-
-
-
 ### Flappy Bird
 ### Breakout
 ### Match 3
