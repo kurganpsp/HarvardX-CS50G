@@ -8,9 +8,8 @@ cogden@cs50.harvard.edu
 David J. Malan
 malan@harvard.edu
 
-[Week 0  Pong (Tele-Pong) Atari](other_file.md)
-[a relative link](other_file.md)
-
+### Week 0
+[Pong (Tele-Pong) Atari](notes\week1pong.md)
 
 ### Week 1  Flappy Bird
 ### Week 2  Breakout
