@@ -8,6 +8,13 @@ cogden@cs50.harvard.edu
 David J. Malan
 malan@harvard.edu
 
+## Contents
+
+- [Platforms](#platforms)
+- [Platforms](#platforms)
+- [Platforms](#platforms)
+- [Platforms](#platforms)
+
 ### Week 0
 - [Pong (Tele-Pong) Atari](notes/week1pong.md)
 
@@ -22,3 +29,5 @@ malan@harvard.edu
 ### Week 9  Dreadhalls
 ### Week 10 Portal
 ### Week 11 Portal Problems
+
+## Platforms
