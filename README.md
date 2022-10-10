@@ -9,7 +9,7 @@ David J. Malan
 malan@harvard.edu
 
 ### Week 0
-[Pong (Tele-Pong) Atari](notes/week1pong.md)
+- [Pong (Tele-Pong) Atari](notes/week1pong.md)
 
 ### Week 1  Flappy Bird
 ### Week 2  Breakout
