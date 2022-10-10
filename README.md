@@ -8,8 +8,7 @@ cogden@cs50.harvard.edu
 David J. Malan
 malan@harvard.edu
 
-### Week 0  Pong (Tele-Pong) Atari
-
+[Week 0  Pong (Tele-Pong) Atari](other_file.md)
 [a relative link](other_file.md)
 
 
