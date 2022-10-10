@@ -2,8 +2,8 @@
     GD50 2018
     Pong Remake
 
-    pong-2
-    "The Rectangle Update"
+    pong-1
+    "The Low-Res Update"
 
     -- Main Program --
 
@@ -20,31 +20,30 @@
     modern systems.
 ]]
 
--- push es una librería que nos permitirá dibujar nuestro juego a
--- una resolución virtual, en lugar de por grande que sea nuestra
--- ventana; utilizado para proporcionar una estética más retro
+-- push is a library that will allow us to draw our game at a virtual
+-- resolution, instead of however large our window is; used to provide
+-- a more retro aesthetic
+--
 -- https://github.com/Ulydev/push
 push = require 'push'
 
-WINDOW_WIDTH =  160 * 2
-WINDOW_HEIGHT = 190 * 2
+WINDOW_WIDTH = 1280
+WINDOW_HEIGHT = 720
 
-VIRTUAL_WIDTH = 160
-VIRTUAL_HEIGHT = 190
+VIRTUAL_WIDTH = 432
+VIRTUAL_HEIGHT = 243
 
 --[[
     Runs when the game first starts up, only once; used to initialize the game.
 ]]
 function love.load()
+    -- use nearest-neighbor filtering on upscaling and downscaling to prevent blurring of text 
+    -- and graphics; try removing this function to see the difference!
     love.graphics.setDefaultFilter('nearest', 'nearest')
 
-    -- more "retro-looking" font object we can use for any text
-    smallFont = love.graphics.newFont('font.ttf', 8)
-
-    -- set LÖVE2D's active font to the smallFont obect
-    love.graphics.setFont(smallFont)
-
-    -- initialize window with virtual resolution
+    -- initialize our virtual resolution, which will be rendered within our
+    -- actual window no matter its dimensions; replaces our love.window.setMode call
+    -- from the last example
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
         fullscreen = false,
         resizable = false,
@@ -72,26 +71,9 @@ function love.draw()
     -- begin rendering at virtual resolution
     push:apply('start')
 
-    -- clear the screen with a specific color; in this case, a color similar
-    -- to some versions of the original Pong
-    love.graphics.clear(30/255, 35/255, 42/255, 255/255)
-
-    -- draw welcome text toward the top of the screen
-    love.graphics.printf('Hello Pong!', 0, 20, VIRTUAL_WIDTH, 'center')
-
-    --
-    -- paddles are simply rectangles we draw on the screen at certain points,
-    -- as is the ball
-    --
-
-    -- render first paddle (left side)
-    love.graphics.rectangle('fill', 10, 30, 5, 20)
-
-    -- render second paddle (right side)
-    love.graphics.rectangle('fill', VIRTUAL_WIDTH - 10, VIRTUAL_HEIGHT - 50, 5, 20)
-
-    -- render ball (center)
-    love.graphics.rectangle('fill', VIRTUAL_WIDTH / 2 - 2, VIRTUAL_HEIGHT / 2 - 2, 4, 4)
+    -- condensed onto one line from last example
+    -- note we are now using virtual width and height now for text placement
+    love.graphics.printf('Hello Pong!', 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
 
     -- end rendering at virtual resolution
     push:apply('end')
